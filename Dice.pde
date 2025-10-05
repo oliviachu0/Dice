@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-// Declare a list to hold all the Dice objects.
+
 List<Dice> diceList;
 int sum = 0;
 
@@ -9,13 +9,12 @@ void setup() {
   size(400, 400);
   noLoop(); // Stop draw() from looping automatically.
 
-  // Initialize the list in setup().
+ 
   diceList = new ArrayList<>();
 
-  // Use nested loops to create and position 16 dice in a 4x4 grid.
+
   for (int row = 0; row < 4; row++) {
     for (int col = 0; col < 4; col++) {
-      // Calculate a unique position for each dice.
       int xPos = 50 + col * 75;
       int yPos = 50 + row * 75;
       diceList.add(new Dice(xPos, yPos));
@@ -25,12 +24,12 @@ void setup() {
 
 void draw() {
   background(192);
-  sum = 0; // Reset sum at the start of each draw cycle.
+  sum = 0; 
 
-  // Iterate through the list of dice to draw them and calculate the sum.
+
   for (Dice dice : diceList) {
     dice.show();
-    sum += dice.getRoll(); // Add each die's individual roll to the total sum.
+    sum += dice.getRoll(); 
   }
   
   fill(0);
@@ -39,7 +38,7 @@ void draw() {
 }
 
 void mousePressed() {
-  // When the mouse is clicked, iterate through the list and re-roll each dice.
+ 
   for (Dice dice : diceList) {
     dice.rollDice();
   }
@@ -60,7 +59,7 @@ class Dice {
     roll = (int)(Math.random() * 6) + 1;
   }
   
-  // Method to get the current roll value, necessary for the sum.
+  
   int getRoll() {
     return roll;
   }
@@ -70,7 +69,7 @@ class Dice {
     rect(myX, myY, 50, 50);
     fill(0);
     
-    // Draw logic for the dots (pips) based on the current roll.
+  
     if (roll == 1){
       ellipse (myX + 25, myY + 25, 8, 8);
     }
